@@ -86,8 +86,10 @@ function parseFile (file) {
 			if (!primary && model.properties.length > 0) {
 				primary = model.properties[0].variable.name;
 			};
-			metadata = {database:database, table:table, model:model.name, primary:primary, fields:fields}
-			metadatas.push(metadata)
+			if (fields.length) {
+				metadata = {database:database, table:table, model:model.name, primary:primary, fields:fields}
+				metadatas.push(metadata)	
+			};
 		};
 	};
 }
