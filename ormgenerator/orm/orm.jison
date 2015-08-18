@@ -9,6 +9,7 @@
 "@"													{return '@';}
 "interface"											{return 'interface';}
 "end"												{return 'end';}
+"enum"												{return 'enum';}
 "property"											{return 'property';}
 "setter"											{return 'setter';}
 "getter"											{return 'getter';}
@@ -33,11 +34,14 @@
 ">"													{return '<';}
 "{"													{return '{';}
 "}"													{return '}';}
+"["													{return '[';}
+"]"													{return ']';}
 "("													{return '(';}
 ")"													{return ')';}
 ","													{return ',';}
 ":"													{return ':';}
 ";"													{return ';';}
+"."													{return '.';}
 .													{/**/}
 
 
@@ -185,13 +189,13 @@ propertyitem:'@' 'property' '(' decorators ')' variable ';'
 	{
 		$$ = $1;
 	}
-	|'database' '(' name ')'
+	|'database' '(' sentence ')'
 	{
 		$$ = new DatabaseDeclaration();
 		$$.type = 'database';
 		$$.name = $3;
 	}
-	|'table' '(' name ')'
+	|'table' '(' sentence ')'
 	{
 		$$ = new TableDeclaration();
 		$$.type = 'table';
@@ -284,6 +288,7 @@ type: typename pointers
 	;
 typename:typedecorator basetype {$$ = $1 + ' ' + $2;}
 	|typedecorator { $$ = $1;}
+	|'enum' name {$$ = $1 + ' ' + $2;}
 	|'const' basetype {$$ = $1 + ' ' + $2;}
 	|basetype { $$ = $1;}
 	| name {$$ = $1;}
@@ -307,8 +312,18 @@ pointer:'*' {$$ = new PointerDeclaration();$$.is_const = false;}
 	|'*' 'const'{$$ = new PointerDeclaration();$$.is_const = true;}
 	;
 
+sentence :name {$$ = '@"' + $1 + '"';}
+	|invoke {$$ = $1;}
+	;
+invoke:'[' invoke name ']' { $$ = $1 + $2 + ' ' + $3 + $4;}
+	|invoke '.' name { $$ = $1 + $2 + $3;}
+	|'[' name name ']' { $$ = $1 + $2 + ' ' + $3 + $4;}
+	|name '.' name { $$ = $1 + $2 + $3;}
+	;
+
 name:TIDENTIFIER { $$ = yytext;}
 	;
+
 numeric: TINTEGER {/**/}
 	;
 

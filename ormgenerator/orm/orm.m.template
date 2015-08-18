@@ -14,11 +14,11 @@
 }
 
 + (NSString *)dbName {
-    return @"{{item.database}}";
+    return {{item.database}};
 }
 
 + (NSString *)tableName {
-    return @"{{item.table}}";
+    return {{item.table}};
 }
 
 + (NSString *)primaryKey {

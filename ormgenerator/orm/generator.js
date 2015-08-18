@@ -76,15 +76,15 @@ function parseFile (file) {
 						};
 					};
 				}else if (property.type == 'database'){
-					database = property.name + '.db';
+					database = property.name;
 				}else if (property.type == 'table'){
 					table = property.name;
 				}
 				
 			};
 
-			if (!primary && model.properties.length > 0) {
-				primary = model.properties[0].variable.name;
+			if (!primary && fields.length > 0) {
+				primary = fields[0];
 			};
 			if (fields.length) {
 				metadata = {database:database, table:table, model:model.name, primary:primary, fields:fields}
