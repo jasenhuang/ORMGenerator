@@ -1,6 +1,6 @@
 //
-//  testormTests.m
-//  testormTests
+//  ormgeneratorTests.m
+//  ormgeneratorTests
 //
 //  Created by jasenhuang on 15/8/14.
 //  Copyright (c) 2015年 tencent. All rights reserved.
@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface testormTests : XCTestCase
+@interface ormgeneratorTests : XCTestCase
 
 @end
 
-@implementation testormTests
+@implementation ormgeneratorTests
 
 - (void)setUp {
     [super setUp];

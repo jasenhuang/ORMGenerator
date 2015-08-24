@@ -402,7 +402,7 @@
 				INFOPLIST_FILE = ormgeneratorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ormgeneratorTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testorm.app/testorm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ormgenerator.app/ormgenerator";
 			};
 			name = Debug;
 		};
@@ -417,7 +417,7 @@
 				INFOPLIST_FILE = ormgeneratorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ormgeneratorTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testorm.app/testorm";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ormgenerator.app/ormgenerator";
 			};
 			name = Release;
 		};
@@ -440,6 +440,7 @@
 				55ED6EF61B7DA0AF0048DF9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55ED6EF71B7DA0AF0048DF9E /* Build configuration list for PBXNativeTarget "ormgeneratorTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +449,7 @@
 				55ED6EF91B7DA0AF0048DF9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
